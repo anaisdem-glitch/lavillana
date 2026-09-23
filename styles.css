@@ -120,7 +120,8 @@ section{ padding:120px 0; }
 .avis-track::-webkit-scrollbar{ display:none; }
 .review-card{ background:var(--grey-card); border-radius:5px; padding:24px; flex:0 0 calc((100% - 40px)/3); scroll-snap-align:start; }
 .review-top{ display:flex; align-items:center; gap:10px; position:relative; }
-.avatar{ width:34px; height:34px; border-radius:50%; background:var(--sage); color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:500; position:relative; flex-shrink:0; }
+.avatar{ width:34px; height:34px; border-radius:50%; background:var(--sage); color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:500; position:relative; flex-shrink:0; overflow:hidden; }
+.avatar img{ width:100%; height:100%; object-fit:cover; }
 .avatar::after{ content:""; position:absolute; bottom:-1px; right:-1px; width:11px; height:11px; border-radius:50%; background:#4285F4; border:1.5px solid var(--grey-card); }
 .review-name{ font-size:13px; color:var(--ink); font-weight:500; }
 .review-date{ font-size:11px; color:var(--ink-soft); margin-top:1px; }
