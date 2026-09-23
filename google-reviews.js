@@ -2,6 +2,19 @@
   var PLACE_ID = 'ChIJSTcQGEr_BEgRzqUvsbzRi9Y';
   var API_KEY = 'AIzaSyC_UOWo2cy5FVU4FqdshS1MNhuEaMfq0r0';
   var EXCERPT_LEN = 140;
+  var MIN_FILTERED = 2;
+
+  // Classification donnée par Anaïs : ces prénoms = avis "particuliers", tout le reste = "pro".
+  var PARTICULIER_NAMES = ['rolf','fiona','christiane','clemence','whitney','guillaume'];
+
+  function normalize(str){
+    return String(str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function isKnownParticulier(name){
+    var n = normalize(name);
+    return PARTICULIER_NAMES.some(function(first){ return n.indexOf(first) !== -1; });
+  }
 
   function esc(str){
     return String(str || '').replace(/[&<>"']/g, function(c){
@@ -17,9 +30,23 @@
     return { short: cut + '…', needsMore: true };
   }
 
+  function reviewText(rev){
+    return (rev.text && rev.text.text) || (rev.originalText && rev.originalText.text) || '';
+  }
+  function reviewerName(rev){
+    return (rev.authorAttribution && rev.authorAttribution.displayName) || '';
+  }
+  function isPro(rev){
+    return !isKnownParticulier(reviewerName(rev));
+  }
+  function isPerso(rev){
+    return isKnownParticulier(reviewerName(rev));
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
     var track = document.getElementById('avisTrack');
     if (!track) return;
+    var mode = track.getAttribute('data-mode') || 'all';
 
     fetch('https://places.googleapis.com/v1/places/' + PLACE_ID + '?languageCode=fr', {
       headers: {
@@ -31,18 +58,30 @@
     .then(function(data){
       if (!data.reviews || !data.reviews.length) return;
 
+      // Les plus élogieux (note) d'abord, puis les plus récents à note égale.
       var reviews = data.reviews.slice().sort(function(a, b){
+        var byRating = (b.rating || 0) - (a.rating || 0);
+        if (byRating !== 0) return byRating;
         return new Date(b.publishTime) - new Date(a.publishTime);
       });
 
-      track.innerHTML = reviews.slice(0, 5).map(function(rev){
+      var chosen = reviews;
+      if (mode === 'pro'){
+        var proOnly = reviews.filter(isPro);
+        if (proOnly.length >= MIN_FILTERED) chosen = proOnly;
+      } else if (mode === 'perso'){
+        var persoOnly = reviews.filter(isPerso);
+        if (persoOnly.length >= MIN_FILTERED) chosen = persoOnly;
+      }
+
+      track.innerHTML = chosen.slice(0, 5).map(function(rev){
         var author = rev.authorAttribution || {};
         var name = author.displayName || 'Client Google';
         var photo = author.photoUri || '';
         var initial = esc(name.charAt(0).toUpperCase());
         var rating = Math.max(0, Math.min(5, rev.rating || 5));
         var stars = '★★★★★'.slice(0, rating);
-        var fullText = (rev.text && rev.text.text) || (rev.originalText && rev.originalText.text) || '';
+        var fullText = reviewText(rev);
         var date = rev.relativePublishTimeDescription || '';
         var avatarInner = photo ? '<img src="' + esc(photo) + '" alt="">' : initial;
         var t = truncate(fullText);
