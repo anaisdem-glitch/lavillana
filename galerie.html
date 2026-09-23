@@ -6,7 +6,7 @@
 <title>Galerie photos | La Villana, Saint-Hilaire-de-Riez</title>
 <meta name="description" content="Photos de La Villana, maison de charme à Saint-Hilaire-de-Riez, en Vendée : séjour, cuisine, chambre, salles de bain, dressing.">
 <link rel="canonical" href="https://www.lavillana.fr/galerie">
-<link rel="stylesheet" href="styles.css?v=15">
+<link rel="stylesheet" href="styles.css?v=17">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -37,27 +37,125 @@
     <div class="wrap">
       <div class="eyebrow">Saint-Hilaire-de-Riez · Vendée</div>
       <h2 style="font-size:34px;">Galerie</h2>
+      <p class="section-head" style="margin-top:20px;">À 5 minutes à pied de la plage et au pied de la forêt domaniale, La Villana est une maison de plain-pied moderne, chaleureuse et décorée avec goût. Grandes baies vitrées, jardin clos sans vis-à-vis et terrasse en bois de 80&nbsp;m² : un lieu lumineux, agréable à vivre toute l'année — y compris à la mi-saison et en hiver, grâce à son insert à granulés.</p>
     </div>
   </section>
 
   <section>
     <div class="wrap">
-      <div class="gallery-grid">
-        <img src="photos/salle-a-manger-table-bois-vendee.jpg" alt="Salle à manger de La Villana, table en bois massif et chaises en velours côtelé vert">
-        <img src="photos/suspension-salle-a-manger-la-villana.jpg" alt="Suspension bois et métal au-dessus de la table à manger">
-        <img src="photos/cuisine-equipee-location-vendee.jpg" alt="Cuisine équipée de La Villana, plan de travail noir et façades bois">
-        <img src="photos/chambre-lumineuse-terrasse-vendee.jpg" alt="Chambre lumineuse avec accès direct à la terrasse">
-        <img src="photos/salle-de-bain-vasque-bois.jpg" alt="Salle de bain avec vasque et meuble en bois">
-        <img src="photos/douche-italienne-pierre-naturelle.jpg" alt="Douche à l'italienne avec mur en pierre naturelle">
-        <img src="photos/dressing-amenage-rangements.jpg" alt="Dressing aménagé avec penderies et rangements">
-        <img src="photos/buanderie-equipee-la-villana.jpg" alt="Buanderie équipée avec lave-linge et sèche-linge">
-        <img src="photos/decoration-murale-boheme-vendee.jpg" alt="Composition murale décorative, esprit bohème">
-        <img src="photos/detail-deco-table-a-manger.jpg" alt="Détail décoratif sur la table à manger">
-        <img src="photos/vue-terrasse-jardin-la-villana.jpg" alt="Détail décoratif avec vue sur la terrasse et le jardin">
-        <img src="photos/plante-suspendue-jardin-mineral.jpg" alt="Plante suspendue avec vue sur le jardin minéral">
+      <div class="gallery-filter">
+        <button data-filter="all" class="active">Tout</button>
+        <button data-filter="sejour">Séjour</button>
+        <button data-filter="cuisine">Cuisine</button>
+        <button data-filter="chambres">Chambres</button>
+        <button data-filter="salles-eau">Salles d'eau</button>
+        <button data-filter="buanderie">Buanderie</button>
+        <button data-filter="exterieur">Extérieur</button>
       </div>
-      <div class="gallery-note" style="margin-top:20px;">
-        D'autres photos à venir — envoie-les-moi quand tu veux et je les ajoute ici.
+      <div class="gallery-grid">
+        <div class="space-item" data-cat="sejour">
+          <img src="photos/salle-a-manger-table-bois-vendee.jpg" alt="Salle à manger de La Villana, table en bois massif et chaises en velours côtelé vert">
+          <div class="space-caption"><h4>Séjour</h4></div>
+        </div>
+        <div class="space-item" data-cat="sejour">
+          <img src="photos/suspension-salle-a-manger-la-villana.jpg" alt="Suspension bois et métal au-dessus de la table à manger">
+          <div class="space-caption"><h4>Séjour</h4></div>
+        </div>
+        <div class="space-item" data-cat="cuisine">
+          <img src="photos/cuisine-equipee-location-vendee.jpg" alt="Cuisine équipée de La Villana, plan de travail noir et façades bois">
+          <div class="space-caption"><h4>Cuisine</h4></div>
+        </div>
+        <div class="space-item" data-cat="chambres">
+          <img src="photos/chambre-lumineuse-terrasse-vendee.jpg" alt="Chambre lumineuse avec accès direct à la terrasse">
+          <div class="space-caption"><h4>Chambre</h4></div>
+        </div>
+        <div class="space-item" data-cat="salles-eau">
+          <img src="photos/salle-de-bain-vasque-bois.jpg" alt="Salle de bain avec vasque et meuble en bois">
+          <div class="space-caption"><h4>Salle d'eau</h4></div>
+        </div>
+        <div class="space-item" data-cat="salles-eau">
+          <img src="photos/douche-italienne-pierre-naturelle.jpg" alt="Douche à l'italienne avec mur en pierre naturelle">
+          <div class="space-caption"><h4>Salle d'eau</h4></div>
+        </div>
+        <div class="space-item" data-cat="chambres">
+          <img src="photos/dressing-amenage-rangements.jpg" alt="Dressing aménagé avec penderies et rangements">
+          <div class="space-caption"><h4>Dressing</h4></div>
+        </div>
+        <div class="space-item" data-cat="buanderie">
+          <img src="photos/buanderie-equipee-la-villana.jpg" alt="Buanderie équipée avec lave-linge et sèche-linge">
+          <div class="space-caption"><h4>Buanderie</h4></div>
+        </div>
+        <div class="space-item" data-cat="sejour">
+          <img src="photos/decoration-murale-boheme-vendee.jpg" alt="Composition murale décorative, esprit bohème">
+          <div class="space-caption"><h4>Séjour</h4></div>
+        </div>
+        <div class="space-item" data-cat="sejour">
+          <img src="photos/detail-deco-table-a-manger.jpg" alt="Détail décoratif sur la table à manger">
+          <div class="space-caption"><h4>Séjour</h4></div>
+        </div>
+        <div class="space-item" data-cat="exterieur">
+          <img src="photos/vue-terrasse-jardin-la-villana.jpg" alt="Vue sur la terrasse et le jardin clos de La Villana">
+          <div class="space-caption"><h4>Terrasse &amp; jardin</h4></div>
+        </div>
+        <div class="space-item" data-cat="exterieur">
+          <img src="photos/plante-suspendue-jardin-mineral.jpg" alt="Plante suspendue avec vue sur le jardin minéral">
+          <div class="space-caption"><h4>Terrasse &amp; jardin</h4></div>
+        </div>
+        <div class="space-item" data-cat="sejour">
+          <img src="photos/entree-salon-la-villana.jpg" alt="Entrée ouverte sur le séjour de La Villana">
+          <div class="space-caption"><h4>Séjour</h4></div>
+        </div>
+        <div class="space-item" data-cat="sejour">
+          <img src="photos/salon-cheminee-tv-la-villana.jpg" alt="Salon avec insert à granulés et télévision">
+          <div class="space-caption"><h4>Séjour</h4></div>
+        </div>
+        <div class="space-item" data-cat="chambres">
+          <img src="photos/chambre-lumiere-doree-vendee.jpg" alt="Chambre baignée de lumière dorée en fin de journée">
+          <div class="space-caption"><h4>Chambre</h4></div>
+        </div>
+        <div class="space-item" data-cat="sejour">
+          <img src="photos/salle-a-manger-plante-la-villana.jpg" alt="Table à manger avec plante et vue sur le salon">
+          <div class="space-caption"><h4>Séjour</h4></div>
+        </div>
+        <div class="space-item" data-cat="exterieur">
+          <img src="photos/terrasse-table-pique-nique-vendee.jpg" alt="Table de pique-nique sur la terrasse en bois">
+          <div class="space-caption"><h4>Terrasse &amp; jardin</h4></div>
+        </div>
+        <div class="space-item" data-cat="exterieur">
+          <img src="photos/salon-exterieur-mur-pierre-vendee.jpg" alt="Coin salon extérieur avec mur en pierre naturelle">
+          <div class="space-caption"><h4>Terrasse &amp; jardin</h4></div>
+        </div>
+        <div class="space-item" data-cat="sejour">
+          <img src="photos/suspension-entree-la-villana.jpg" alt="Suspension design à l'entrée, vue sur la terrasse">
+          <div class="space-caption"><h4>Séjour</h4></div>
+        </div>
+        <div class="space-item" data-cat="sejour">
+          <img src="photos/table-dressee-detail-la-villana.jpg" alt="Table dressée avec vaisselle et vue sur le séjour">
+          <div class="space-caption"><h4>Séjour</h4></div>
+        </div>
+        <div class="space-item" data-cat="sejour">
+          <img src="photos/salon-mur-vert-cadres-vendee.jpg" alt="Salon avec mur vert sauge et cadres décoratifs">
+          <div class="space-caption"><h4>Séjour</h4></div>
+        </div>
+        <div class="space-item" data-cat="buanderie">
+          <img src="photos/buanderie-evier-vasque-la-villana.jpg" alt="Buanderie avec évier et lave-linge superposé">
+          <div class="space-caption"><h4>Buanderie</h4></div>
+        </div>
+        <div class="space-item" data-cat="chambres">
+          <img src="photos/chambre-fresque-tropicale-vendee.jpg" alt="Chambre avec fresque tropicale et lampes de chevet">
+          <div class="space-caption"><h4>Chambre</h4></div>
+        </div>
+        <div class="space-item" data-cat="salles-eau">
+          <img src="photos/salle-de-bain-vasque-miroir-vendee.jpg" alt="Salle de bain avec vasque, miroir bois et douche à l'italienne">
+          <div class="space-caption"><h4>Salle d'eau</h4></div>
+        </div>
+        <div class="space-item" data-cat="exterieur">
+          <img src="photos/terrasse-bains-de-soleil-vendee.jpg" alt="Bains de soleil sur la terrasse de La Villana">
+          <div class="space-caption"><h4>Terrasse &amp; jardin</h4></div>
+        </div>
+      </div>
+      <div class="gallery-note" style="margin-top:32px;">
+        D'autres photos à venir — envoie-les-moi quand tu veux et je les ajoute à la bonne catégorie.
       </div>
     </div>
   </section>
@@ -74,5 +172,6 @@
   © 2026 La Villana · Saint-Hilaire-de-Riez · Location pour particuliers &amp; professionnels
 </footer>
 
+<script src="gallery-filter.js?v=1"></script>
 </body>
 </html>
