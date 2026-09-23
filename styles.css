@@ -134,6 +134,15 @@ section{ padding:120px 0; }
 .avis-dots button{ width:5px; height:5px; border-radius:50%; background:var(--line); border:none; padding:0; cursor:pointer; }
 .avis-dots button.active{ background:var(--terracotta); }
 
+/* bannière photo pleine largeur (pages secondaires) */
+.page-banner{ position:relative; min-height:520px; display:flex; align-items:center; background-size:cover; background-position:center; }
+.page-banner::before{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(24,19,12,.32), rgba(24,19,12,.78)); }
+.page-banner .wrap{ position:relative; z-index:1; }
+.page-banner .eyebrow{ color:rgba(255,255,255,.8); }
+.page-banner h1{ color:#fff; max-width:16ch; }
+.page-banner p{ color:rgba(251,248,243,.82); max-width:46ch; margin:26px 0 34px; font-size:15px; line-height:1.75; }
+@media (max-width:900px){ .page-banner{ min-height:420px; } }
+
 /* galerie d'activités (page professionnels) */
 .space-gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px; }
 .space-item{ position:relative; overflow:hidden; border-radius:2px; }
