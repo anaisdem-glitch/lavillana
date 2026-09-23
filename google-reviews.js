@@ -2,7 +2,6 @@
   var PLACE_ID = 'ChIJSTcQGEr_BEgRzqUvsbzRi9Y';
   var API_KEY = 'AIzaSyC_UOWo2cy5FVU4FqdshS1MNhuEaMfq0r0';
   var EXCERPT_LEN = 140;
-  var MIN_FILTERED = 2;
 
   // Classification donnée par Anaïs : ces prénoms = avis "particuliers", tout le reste = "pro".
   var PARTICULIER_NAMES = ['rolf','fiona','christiane','clemence','whitney','guillaume'];
@@ -67,11 +66,15 @@
 
       var chosen = reviews;
       if (mode === 'pro'){
-        var proOnly = reviews.filter(isPro);
-        if (proOnly.length >= MIN_FILTERED) chosen = proOnly;
+        chosen = reviews.filter(isPro);
       } else if (mode === 'perso'){
-        var persoOnly = reviews.filter(isPerso);
-        if (persoOnly.length >= MIN_FILTERED) chosen = persoOnly;
+        chosen = reviews.filter(isPerso);
+      }
+
+      if (!chosen.length){
+        var section = track.closest('section');
+        if (section) section.style.display = 'none';
+        return;
       }
 
       track.innerHTML = chosen.slice(0, 5).map(function(rev){
