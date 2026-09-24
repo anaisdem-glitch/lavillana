@@ -62,12 +62,92 @@
         </div>
       </div>
 
-      <div class="tourism-grid" style="margin-top:26px;">
-        <div class="tourism-card">
-          <h4>Vendée Tourisme</h4>
-          <p>Le site officiel du département : idées de sorties, agenda, plages, activités dans toute la Vendée.</p>
-          <a class="ext" href="https://www.vendee-tourisme.com/" target="_blank" rel="noopener">vendee-tourisme.com →</a>
+      <div class="gallery-filter" id="tourismFilter" style="margin-top:70px;">
+        <button data-filter="all" class="active">Tout</button>
+        <button data-filter="plages">Plages</button>
+        <button data-filter="randonnees">Randonnées</button>
+        <button data-filter="visites">Visites</button>
+        <button data-filter="parcs">Parcs</button>
+        <button data-filter="iles">Îles &amp; marais</button>
+        <button data-filter="gastronomie">Gastronomie</button>
+        <button data-filter="nautique">Nautique</button>
+        <button data-filter="insolite">Insolite</button>
+      </div>
+
+      <div class="tourism-grid" id="tourismLinks" style="margin-top:16px;">
+        <div class="tourism-card" data-cat="plages">
+          <h4>Plages et stations balnéaires</h4>
+          <p>140 km de sable fin et 18 stations balnéaires classées le long de la côte vendéenne.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/nos-incontournables/plages-et-stations-balneaires" target="_blank" rel="noopener">Voir sur Vendée Tourisme →</a>
         </div>
+        <div class="tourism-card" data-cat="plages">
+          <h4>Top 20 des plages vendéennes</h4>
+          <p>Le classement des plus belles plages du département, par Vendée Tourisme.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/le-top-20-des-plages-vendeennes" target="_blank" rel="noopener">Voir le classement →</a>
+        </div>
+        <div class="tourism-card" data-cat="randonnees">
+          <h4>Détente &amp; Nature en Vendée</h4>
+          <p>Forêts, marais et sentiers pour explorer la Vendée à pied ou à vélo.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/detente-et-nature-en-vendee" target="_blank" rel="noopener">Voir sur Vendée Tourisme →</a>
+        </div>
+        <div class="tourism-card" data-cat="randonnees">
+          <h4>Calendrier des randonnées pédestres</h4>
+          <p>Toutes les randonnées organisées en Vendée, semaine après semaine.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/calendrier-des-randonnees-pedestres-en-vendee" target="_blank" rel="noopener">Voir le calendrier →</a>
+        </div>
+        <div class="tourism-card" data-cat="randonnees">
+          <h4>Calendrier des randonnées cyclo et VTT</h4>
+          <p>Les sorties à vélo et VTT programmées dans le département.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/calendrier-des-randonnees-cyclo-et-vtt-en-vendee" target="_blank" rel="noopener">Voir le calendrier →</a>
+        </div>
+        <div class="tourism-card" data-cat="visites">
+          <h4>Culture &amp; Patrimoine</h4>
+          <p>Châteaux, musées et sites historiques à visiter partout en Vendée.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/culture-et-patrimoine" target="_blank" rel="noopener">Voir sur Vendée Tourisme →</a>
+        </div>
+        <div class="tourism-card" data-cat="parcs">
+          <h4>Le Puy du Fou</h4>
+          <p>Le parc à spectacles historiques, l'un des plus visités d'Europe.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/nos-incontournables/puy-du-fou" target="_blank" rel="noopener">Voir sur Vendée Tourisme →</a>
+        </div>
+        <div class="tourism-card" data-cat="parcs">
+          <h4>Loisirs &amp; Sorties</h4>
+          <p>Parcs d'attractions, loisirs et sorties en famille dans toute la Vendée.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/loisirs-et-sorties" target="_blank" rel="noopener">Voir sur Vendée Tourisme →</a>
+        </div>
+        <div class="tourism-card" data-cat="iles">
+          <h4>Les îles (Noirmoutier, Yeu)</h4>
+          <p>Deux îles vendéennes aux ambiances bien différentes, à moins d'une heure de route.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/nos-incontournables/les-iles" target="_blank" rel="noopener">Voir sur Vendée Tourisme →</a>
+        </div>
+        <div class="tourism-card" data-cat="iles">
+          <h4>Le Gois</h4>
+          <p>Le passage submersible mythique qui relie Noirmoutier au continent à marée basse.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/nos-incontournables/le-gois" target="_blank" rel="noopener">Voir sur Vendée Tourisme →</a>
+        </div>
+        <div class="tourism-card" data-cat="iles">
+          <h4>Le Marais poitevin</h4>
+          <p>La « Venise Verte » : balades en barque au fil des canaux.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/nos-incontournables/le-marais-poitevin" target="_blank" rel="noopener">Voir sur Vendée Tourisme →</a>
+        </div>
+        <div class="tourism-card" data-cat="gastronomie">
+          <h4>Gastronomie &amp; Terroir</h4>
+          <p>Brioche vendéenne, mogettes, préfou... les spécialités et bonnes adresses du département.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/gastronomie-et-terroir" target="_blank" rel="noopener">Voir sur Vendée Tourisme →</a>
+        </div>
+        <div class="tourism-card" data-cat="nautique">
+          <h4>Activités nautiques en Vendée</h4>
+          <p>Surf, voile, kayak, paddle : toutes les activités sur l'eau, tout le long de la côte.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/activites-nautiques-en-vendee" target="_blank" rel="noopener">Voir sur Vendée Tourisme →</a>
+        </div>
+        <div class="tourism-card" data-cat="insolite">
+          <h4>Lieux insolites en Vendée</h4>
+          <p>Des sites hors des sentiers battus, pour changer du programme classique.</p>
+          <a class="ext" href="https://www.vendee-tourisme.com/insolite-en-vendee" target="_blank" rel="noopener">Voir sur Vendée Tourisme →</a>
+        </div>
+      </div>
+
+      <div class="tourism-grid" style="margin-top:26px;">
         <div class="tourism-card">
           <h4>Office de tourisme Pays de Saint-Gilles-Croix-de-Vie</h4>
           <p>Pour les événements, activités et bonnes adresses du moment sur tout le territoire.</p>
@@ -108,5 +188,6 @@
   © 2026 La Villana · Saint-Hilaire-de-Riez · Location pour particuliers &amp; professionnels
 </footer>
 
+<script src="tourism-filter.js?v=1"></script>
 </body>
 </html>
