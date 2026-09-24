@@ -57,7 +57,7 @@
     .then(function(data){
       if (!data.reviews || !data.reviews.length) return;
 
-      // Les plus élogieux (note) d'abord, puis les plus récents à note égale.
+      // Les mieux notés d'abord, puis les plus récents à note égale — pas de tri par catégorie.
       var reviews = data.reviews.slice().sort(function(a, b){
         var byRating = (b.rating || 0) - (a.rating || 0);
         if (byRating !== 0) return byRating;
@@ -65,11 +65,6 @@
       });
 
       var chosen = reviews;
-      if (mode === 'pro'){
-        chosen = reviews.filter(isPro);
-      } else if (mode === 'perso'){
-        chosen = reviews.filter(isPerso);
-      }
 
       if (!chosen.length){
         var section = track.closest('section');
