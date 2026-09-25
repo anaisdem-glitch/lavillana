@@ -6,7 +6,8 @@
   var TXT = {
     fr: { more: 'Lire la suite', less: 'Réduire', anon: 'Client Google' },
     en: { more: 'Read more', less: 'Show less', anon: 'Google user' },
-    de: { more: 'Weiterlesen', less: 'Weniger anzeigen', anon: 'Google-Nutzer' }
+    de: { more: 'Weiterlesen', less: 'Weniger anzeigen', anon: 'Google-Nutzer' },
+    nl: { more: 'Lees meer', less: 'Minder tonen', anon: 'Google-gebruiker' }
   }[LANG] || { more: 'Lire la suite', less: 'Réduire', anon: 'Client Google' };
 
   // Classification donnée par Anaïs : ces prénoms = avis "particuliers", tout le reste = "pro".
