@@ -2,6 +2,12 @@
   var PLACE_ID = 'ChIJSTcQGEr_BEgRzqUvsbzRi9Y';
   var API_KEY = 'AIzaSyC_UOWo2cy5FVU4FqdshS1MNhuEaMfq0r0';
   var EXCERPT_LEN = 140;
+  var LANG = (document.documentElement.lang || 'fr').slice(0, 2);
+  var TXT = {
+    fr: { more: 'Lire la suite', less: 'Réduire', anon: 'Client Google' },
+    en: { more: 'Read more', less: 'Show less', anon: 'Google user' },
+    de: { more: 'Weiterlesen', less: 'Weniger anzeigen', anon: 'Google-Nutzer' }
+  }[LANG] || { more: 'Lire la suite', less: 'Réduire', anon: 'Client Google' };
 
   // Classification donnée par Anaïs : ces prénoms = avis "particuliers", tout le reste = "pro".
   var PARTICULIER_NAMES = ['rolf','fiona','christiane','clemence','whitney','guillaume'];
@@ -47,7 +53,7 @@
     if (!track) return;
     var mode = track.getAttribute('data-mode') || 'all';
 
-    fetch('https://places.googleapis.com/v1/places/' + PLACE_ID + '?languageCode=fr', {
+    fetch('https://places.googleapis.com/v1/places/' + PLACE_ID + '?languageCode=' + LANG, {
       headers: {
         'X-Goog-Api-Key': API_KEY,
         'X-Goog-FieldMask': 'reviews'
@@ -74,7 +80,7 @@
 
       track.innerHTML = chosen.slice(0, 5).map(function(rev){
         var author = rev.authorAttribution || {};
-        var name = author.displayName || 'Client Google';
+        var name = author.displayName || TXT.anon;
         var photo = author.photoUri || '';
         var initial = esc(name.charAt(0).toUpperCase());
         var rating = Math.max(0, Math.min(5, rev.rating || 5));
@@ -85,8 +91,8 @@
         var t = truncate(fullText);
 
         var textHtml = t.needsMore
-          ? '<span class="review-short">' + esc(t.short) + ' <button class="review-more" type="button">Lire la suite</button></span>'
-            + '<span class="review-full" hidden>' + esc(fullText) + ' <button class="review-less" type="button">Réduire</button></span>'
+          ? '<span class="review-short">' + esc(t.short) + ' <button class="review-more" type="button">' + TXT.more + '</button></span>'
+            + '<span class="review-full" hidden>' + esc(fullText) + ' <button class="review-less" type="button">' + TXT.less + '</button></span>'
           : esc(fullText);
 
         return '<div class="review-card">'
